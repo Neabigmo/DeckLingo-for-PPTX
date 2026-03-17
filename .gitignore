@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+*.validated.pptx
+*.validation-report.json
