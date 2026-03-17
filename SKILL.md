@@ -1,9 +1,8 @@
 ---
 name: "decklingo-pptx"
-description: "Translate editable text in existing PPTX files into a chosen target language while preserving layout, terminology, and editability. Use when the user wants PPT translation with configurable target language, configurable interaction language, verification, glossary support, or selective translation of slides, notes, layouts, and masters."
+description: "Translate editable PowerPoint decks into Chinese, English, Japanese, and other target languages while preserving layout, glossary consistency, and editability. Use for PPTX localization, English-to-Chinese slides, Chinese-to-English decks, speaker note translation, and glossary-aware presentation workflows."
 license: "MIT"
-metadata:
-  short-description: "Translate editable PPTX text with glossary and verification."
+metadata: {"short-description":"Translate editable PPTX decks with glossary-aware verification.","openclaw":{"homepage":"https://github.com/Neabigmo/DeckLingo-for-PPTX","emoji":"🌐","requires":{"anyBins":["python","python3"],"bins":[],"env":[],"config":[]},"install":[{"id":"download-source","kind":"download","label":"Open GitHub repository","url":"https://github.com/Neabigmo/DeckLingo-for-PPTX","os":["darwin","linux","win32"]}]}}
 ---
 
 # DeckLingo for PPTX
@@ -11,6 +10,20 @@ metadata:
 Use this skill for translation tasks on existing `.pptx` decks when the output must stay editable and visually close to the source.
 
 It is designed to stay tool-agnostic so the same skill package can be used in Codex-style environments, OpenClaw-style environments, and other agent runtimes that can execute local scripts and read `SKILL.md`.
+
+Install on ClawHub:
+
+```bash
+clawhub install decklingo-pptx
+```
+
+Best search phrases for this skill:
+
+- translate powerpoint to chinese
+- translate pptx to english
+- localize presentation deck
+- translate speaker notes in powerpoint
+- glossary aware ppt translation
 
 ## What This Skill Covers
 
@@ -21,6 +34,24 @@ It is designed to stay tool-agnostic so the same skill package can be used in Co
 - Terminology control through glossary files
 - Verification that requested source-language text no longer remains in editable text objects
 - Scan-only and dry-run workflows before writing output
+
+## Real Example Prompts
+
+- Translate this PowerPoint from English to Simplified Chinese and keep all speaker notes editable.
+- Convert this Chinese lecture deck into fluent English, but keep file names, URLs, and numbers unchanged.
+- Localize this PPTX into Japanese using my glossary and tell me if any source-language text remains in layouts or masters.
+
+## When To Use It
+
+- Use it when the source deck must remain editable after translation.
+- Use it when you need slides, notes, layouts, or masters translated selectively.
+- Use it when repeated terminology should stay stable with a glossary.
+
+## When Not To Use It
+
+- Do not use it when the deck text is baked into screenshots or flattened images.
+- Do not use it when the user wants a full visual redesign rather than translation.
+- Do not use it as a generic document translator for PDFs, DOCX, or websites.
 
 ## Defaults
 
@@ -104,3 +135,6 @@ python .trae/skills/decklingo-pptx/scripts/translate_pptx_text.py \
 - Reuse or patch a better project-local translator if the repository already contains one.
 - If network translation is required, verify connectivity first.
 - If the user asks for design cleanup after translation, pair this skill with a slide-layout skill rather than rebuilding the deck here.
+- Treat third-party skills and scripts as untrusted code and review them before enabling.
+- Minimal runtime requirements: Python 3.10+, `lxml`, `deep-translator`, ZIP read/write access.
+- Changelog: see [references/changelog.md](./references/changelog.md).
