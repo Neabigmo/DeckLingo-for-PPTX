@@ -1,5 +1,7 @@
 # DeckLingo for PPTX
 
+![DeckLingo for PPTX cover](./assets/cover-banner.svg)
+
 Translate editable PowerPoint decks into your chosen language while keeping layout, terminology, and editability as stable as possible.
 
 Available on ClawHub:
