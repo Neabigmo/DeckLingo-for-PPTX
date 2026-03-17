@@ -60,6 +60,7 @@ Best search phrases for this skill:
 - `english -> chinese` is a first-class workflow, not a fallback case
 - `working/output language`: use the user's current language by default
 - `translation scope`: slides on, notes on, layouts off, masters off unless the user requests a full inherited-text cleanup
+- `output behavior`: write to a new file by default and do not overwrite the original deck unless the user explicitly asks for it
 
 Keep these separate:
 
@@ -84,6 +85,7 @@ Keep these separate:
    - paragraph counts
    - glossary usage
    - any remaining source-language text in editable objects
+7. Prefer output names like `file.en.pptx`, `file.zh-CN.pptx`, or `file.ja.pptx` so the original PPT stays untouched.
 
 ## Scripts
 

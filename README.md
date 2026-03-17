@@ -1,6 +1,6 @@
 # DeckLingo for PPTX
 
-![DeckLingo for PPTX cover](./assets/cover-banner.svg)
+![DeckLingo for PPTX cover v2](./assets/cover-banner-v2.svg)
 
 Translate editable PowerPoint decks into your chosen language while keeping layout, terminology, and editability as stable as possible.
 
@@ -10,85 +10,178 @@ Available on ClawHub:
 clawhub install decklingo-pptx
 ```
 
+## Choose Your Language
+
+- [English](#english)
+- [中文](#中文)
+
 ## English
 
-DeckLingo for PPTX translates editable PowerPoint decks without flattening the slides. It supports English to Chinese, Chinese to English, glossary-aware terminology control, selective translation of notes/layouts/masters, and verification after translation.
+DeckLingo for PPTX translates editable PowerPoint decks without flattening the slides. It supports English to Chinese, Chinese to English, glossary-aware terminology control, selective translation of notes, layouts, and masters, and verification after translation.
 
-## 中文
+### What It Does
 
-DeckLingo for PPTX 用来翻译可编辑的 PowerPoint，而不是把整套幻灯片打平成图片后再替换文字。它支持英文转中文、中文转英文、术语表控制、备注/版式/母版选择性翻译，以及翻译后的校验。
+DeckLingo is made for real presentation files, not screenshots pretending to be presentations. It opens a `.pptx`, finds editable text, translates it, and writes the result back into a new PowerPoint file.
 
-## 日本語
+That means:
 
-DeckLingo for PPTX は、スライドを画像化せずに編集可能な PowerPoint をそのまま翻訳するためのツールです。英語から中国語、中国語から英語、用語集による用語統一、ノート/レイアウト/マスターの選択翻訳、翻訳後の検証に対応しています。
+- your translated deck stays editable
+- slide order stays the same
+- notes can be translated too
+- layouts and masters can be included when you want a deep cleanup
+- repeated technical terms can stay consistent through a glossary
 
-## Why This Exists
+### What It Does Not Do
 
-Most PPT translation workflows flatten slides, damage layout, or ignore speaker notes and inherited template text. DeckLingo for PPTX works directly on editable PPTX text and is designed for agent workflows, skill marketplaces, and local automation.
+- It does not redesign your slides for you.
+- It does not magically translate text inside flattened images.
+- It does not overwrite your original PPT by default.
 
-## Highlights
+### Very Important Safety Rule
 
-- Editable PPTX translation instead of image-based replacement
-- Source language and target language are both configurable
-- Interaction/output language is configurable separately
-- English to Chinese and Chinese to English are both first-class workflows
-- Optional translation of notes, layouts, and slide masters
-- Glossary support for stable terminology
-- Skip-pattern support for URLs, file names, identifiers, and protected text
-- Preflight scan script and post-translation verification
-- Works as a self-contained skill package for Codex-style and OpenClaw-style runtimes
-
-## Search-Friendly Use Cases
-
-- Translate PowerPoint to Chinese
-- Translate PPTX to English
-- Localize presentation decks
-- Translate speaker notes in PowerPoint
-- Keep PowerPoint layout after translation
-- Glossary-aware slide translation
-
-## Quick Start
-
-Install dependencies:
+By default, you should always write the translated result to a new file, such as:
 
 ```bash
-pip install -r requirements.txt
+lecture.en.pptx
+lecture.zh-CN.pptx
 ```
 
-Scan a deck before translating:
+This keeps the original deck safe. If you ever choose in-place output, make a backup first.
+
+### Why This Is Useful
+
+Most PowerPoint translation workflows are painful. People either:
+
+- copy and paste slide by slide
+- destroy the layout
+- convert slides into images
+- forget speaker notes
+- end up with inconsistent terminology
+
+DeckLingo tries to solve the practical version of the problem: make translation useful without making the deck unusable afterward.
+
+### Simple Example
+
+Scan a deck first:
 
 ```bash
 python scripts/scan_pptx_text.py \
-  --input "example.pptx" \
+  --input "lecture.pptx" \
   --source-lang en \
   --include-notes
 ```
 
-Translate English to Simplified Chinese:
+Translate to a new Chinese file:
 
 ```bash
 python scripts/translate_pptx_text.py \
-  --input "example.pptx" \
-  --output "example.zh-CN.pptx" \
+  --input "lecture.pptx" \
+  --output "lecture.zh-CN.pptx" \
   --source-lang en \
   --target-lang zh-CN \
   --ui-lang zh \
   --include-notes \
-  --report-file "translation-report.json"
+  --report-file "lecture.translation-report.json"
 ```
 
-Translate Chinese to English with a glossary:
+### When You Should Use It
+
+- You have a real `.pptx` file with editable text.
+- You want to translate slides while keeping the structure intact.
+- You need English to Chinese or Chinese to English often.
+- You care about notes, layouts, masters, or terminology.
+
+### When You Should Not Use It
+
+- Your deck is basically a pile of screenshots.
+- You need a visual redesign instead of translation.
+- You want a one-click perfect publishing workflow with no review at all.
+
+## 中文
+
+DeckLingo for PPTX 用来翻译可编辑的 PowerPoint，而不是把整套幻灯片打平成图片后再替换文字。它支持英文转中文、中文转英文、术语表控制、备注、版式和母版的选择性翻译，以及翻译后的校验。
+
+### 这个项目是做什么的
+
+DeckLingo 不是把幻灯片转成图片后再硬改文字，而是直接处理 `.pptx` 里的可编辑文本，然后把翻译结果写回新的 PowerPoint 文件。
+
+这意味着：
+
+- 翻译后的 PPT 还是可以继续编辑
+- 幻灯片顺序不会乱
+- 演讲备注也可以一起翻译
+- 如果你需要，也可以连版式和母版一起处理
+- 专业术语可以通过术语表保持一致
+
+### 它不做什么
+
+- 它不是自动美化 PPT 的工具
+- 它不能完美识别图片里已经烘焙进去的文字
+- 它默认不应该覆盖原始 PPT
+
+### 很重要的一条原则
+
+默认请始终输出到一个新文件，不要覆盖原始 PPT。比如：
+
+```bash
+lecture.en.pptx
+lecture.zh-CN.pptx
+```
+
+这样最安全。原文件保留，出问题也能随时回退。
+
+### 为什么这个工具有价值
+
+很多人做 PPT 翻译时都会遇到这些问题：
+
+- 一页一页手工复制，效率很低
+- 翻译完排版乱掉
+- 备注忘了翻
+- 母版里还残留原语言
+- 前后术语不统一
+
+DeckLingo 解决的是“实际工作里真的会痛”的这部分问题：尽量让翻译后的 PPT 还能继续用，而不是只得到一份勉强能看的结果。
+
+### 一个通俗的用法
+
+先扫描：
+
+```bash
+python scripts/scan_pptx_text.py \
+  --input "lecture.pptx" \
+  --source-lang en \
+  --include-notes
+```
+
+再翻译成新的中文文件：
 
 ```bash
 python scripts/translate_pptx_text.py \
-  --input "example.pptx" \
-  --output "example.en.pptx" \
-  --source-lang zh \
-  --target-lang en \
-  --ui-lang en \
+  --input "lecture.pptx" \
+  --output "lecture.zh-CN.pptx" \
+  --source-lang en \
+  --target-lang zh-CN \
+  --ui-lang zh \
   --include-notes \
-  --glossary-file "assets/glossary.sample.json"
+  --report-file "lecture.translation-report.json"
 ```
+
+### 什么时候适合用
+
+- 你手上有真正的 `.pptx` 文件
+- 你想保留原有结构和大部分版式
+- 你经常要做中英双向翻译
+- 你很在意备注、母版和术语统一
+
+### 什么时候不适合用
+
+- 你的 PPT 大部分文字都在图片里
+- 你真正要的是重新设计一套视觉稿
+- 你希望完全不用人工复核就直接交付正式出版物
+
+## 日本語
+
+DeckLingo for PPTX は、スライドを画像化せずに編集可能な PowerPoint をそのまま翻訳するためのツールです。英語から中国語、中国語から英語、用語集による用語統一、ノート、レイアウト、マスターの選択翻訳、翻訳後の検証に対応しています。
 
 ## Runtime Compatibility
 
@@ -103,13 +196,6 @@ Platform notes are in [references/platform-compatibility.md](./references/platfo
 - Translate this PowerPoint from English to Simplified Chinese and keep all speaker notes editable.
 - Convert this Chinese lecture deck into fluent English, but keep file names, URLs, and numbers unchanged.
 - Localize this PPTX into Japanese using my glossary and tell me if any source-language text remains in layouts or masters.
-
-## When To Use It / When Not To Use It
-
-- Use it when you need editable PPT translation with minimal layout drift.
-- Use it when the deck includes speaker notes or inherited template text that also needs translation.
-- Do not use it when all text is rasterized inside images.
-- Do not use it when the goal is visual redesign rather than translation.
 
 ## Project Structure
 

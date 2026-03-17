@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">DeckLingo for PPTX cover version 2</title>
+  <desc id="desc">A polished bilingual product banner for DeckLingo for PPTX.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="50%" stop-color="#12324d"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="pill2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <filter id="shadow2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="26" flood-color="#020617" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg2)"/>
+  <circle cx="210" cy="180" r="160" fill="#6ee7b7" opacity="0.10"/>
+  <circle cx="1460" cy="170" r="210" fill="#93c5fd" opacity="0.12"/>
+  <circle cx="1320" cy="760" r="160" fill="#f8fafc" opacity="0.07"/>
+  <g filter="url(#shadow2)">
+    <rect x="860" y="118" width="560" height="660" rx="38" fill="url(#card2)"/>
+    <rect x="906" y="176" width="220" height="30" rx="15" fill="#0f766e"/>
+    <rect x="906" y="234" width="414" height="18" rx="9" fill="#99f6e4"/>
+    <rect x="906" y="270" width="356" height="18" rx="9" fill="#99f6e4"/>
+    <rect x="906" y="306" width="302" height="18" rx="9" fill="#99f6e4"/>
+    <rect x="906" y="382" width="220" height="130" rx="28" fill="#ffffff"/>
+    <rect x="1152" y="382" width="214" height="130" rx="28" fill="#eef6ff"/>
+    <rect x="906" y="542" width="460" height="188" rx="28" fill="#ffffff"/>
+    <text x="1016" y="455" text-anchor="middle" font-size="42" font-family="Segoe UI, Arial, sans-serif" font-weight="700" fill="#0f766e">EN</text>
+    <text x="1259" y="455" text-anchor="middle" font-size="36" font-family="Segoe UI, Arial, sans-serif" font-weight="700" fill="#1d4ed8">中文</text>
+    <path d="M1082 446h60" stroke="#0f766e" stroke-width="11" stroke-linecap="round"/>
+    <path d="M1127 446l-16 -16" stroke="#0f766e" stroke-width="11" stroke-linecap="round"/>
+    <path d="M1127 446l-16 16" stroke="#0f766e" stroke-width="11" stroke-linecap="round"/>
+    <path d="M950 604h188" stroke="#0f766e" stroke-width="13" stroke-linecap="round"/>
+    <path d="M950 644h292" stroke="#93c5fd" stroke-width="13" stroke-linecap="round"/>
+    <path d="M950 684h248" stroke="#bfdbfe" stroke-width="13" stroke-linecap="round"/>
+  </g>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#f8fafc">
+    <text x="116" y="214" font-size="96" font-weight="700">DeckLingo</text>
+    <text x="118" y="288" font-size="48" font-weight="600" fill="#99f6e4">for PPTX</text>
+    <rect x="118" y="328" width="470" height="8" rx="4" fill="url(#pill2)"/>
+    <text x="118" y="418" font-size="34">Translate editable slides without destroying layout.</text>
+    <text x="118" y="468" font-size="34">Keep notes, glossary, and structure under control.</text>
+    <rect x="118" y="538" width="228" height="58" rx="29" fill="#0f766e"/>
+    <text x="232" y="576" text-anchor="middle" font-size="27">English → 中文</text>
+    <rect x="366" y="538" width="236" height="58" rx="29" fill="#1d4ed8"/>
+    <text x="484" y="576" text-anchor="middle" font-size="27">中文 → English</text>
+    <rect x="118" y="622" width="178" height="56" rx="28" fill="none" stroke="#93c5fd" stroke-width="2"/>
+    <text x="207" y="658" text-anchor="middle" font-size="24">No Flattening</text>
+    <rect x="314" y="622" width="158" height="56" rx="28" fill="none" stroke="#93c5fd" stroke-width="2"/>
+    <text x="393" y="658" text-anchor="middle" font-size="24">Glossary</text>
+    <rect x="490" y="622" width="156" height="56" rx="28" fill="none" stroke="#93c5fd" stroke-width="2"/>
+    <text x="568" y="658" text-anchor="middle" font-size="24">OpenClaw</text>
+    <rect x="118" y="724" width="420" height="74" rx="24" fill="#081420" opacity="0.78"/>
+    <text x="152" y="770" font-size="26" fill="#dbeafe">Make a new translated deck.</text>
+    <text x="152" y="804" font-size="22" fill="#99f6e4">Original file stays untouched by default.</text>
+  </g>
+</svg>
